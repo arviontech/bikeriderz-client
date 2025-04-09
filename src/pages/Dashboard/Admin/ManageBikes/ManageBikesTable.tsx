@@ -79,7 +79,7 @@ const ManageBikesTable = ({
               <TableRow key={bike?._id}>
                 <TableCell>
                   <img
-                    src={bike?.image[0]}
+                    src={bike?.images[0]}
                     className="w-12 h-12 rounded-xl"
                     alt=""
                   />

@@ -10,7 +10,7 @@ const FeaturedProductCard = ({ item }: { item: TBike }) => {
   return (
     <div className=" px-3 pt-4 xl:w-[305px] w-[325px] h-[480px] border border-gray-300 hover:shadow-xl relative group overflow-hidden mx-auto">
       <img
-        src={item?.image[0]}
+        src={item?.images[0]}
         className="w-[290px] h-[210px] object-center object-cover transition-transform duration-500 ease-in-out group-hover:scale-110 pb-4"
         alt=""
       />

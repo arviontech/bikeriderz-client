@@ -5,7 +5,7 @@ import Featured from "@/components/Home/Featured";
 import Gallary from "@/components/Home/Gallary";
 import HeroSection from "@/components/Home/HeroSection";
 import KnowUs from "@/components/Home/KnowUs";
-import SpinWheel from "@/components/Home/SpinWheel/SpinWheel ";
+// import SpinWheel from "@/components/Home/SpinWheel/SpinWheel ";
 import Testimonials from "@/components/Home/Testimonials";
 import ScrollBottomToTop from "@/components/Shared/ScrollBottomToTop";
 
@@ -16,7 +16,7 @@ const Home = () => {
       <KnowUs />
       <Featured />
       <ChooseUs />
-      <SpinWheel />
+      {/* <SpinWheel /> */}
       <Testimonials />
       <Gallary />
       <Contact />

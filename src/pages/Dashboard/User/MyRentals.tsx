@@ -82,7 +82,10 @@ const MyRentals = () => {
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead className=" font-bold text-lg">Bike</TableHead>
+                    <TableHead className=" font-bold text-lg">Image</TableHead>
+                    <TableHead className=" font-bold text-lg">
+                      Bike Name
+                    </TableHead>
                     <TableHead className=" font-bold text-lg">
                       Start Time
                     </TableHead>
@@ -112,7 +115,14 @@ const MyRentals = () => {
                       ?.filter((rent: TBooking) => !rent?.isPaid)
                       .map((rent: TBooking, index: number) => (
                         <TableRow key={rent._id || `unpaid-${index}`}>
-                          ?<TableCell>{rent?.bikeId.name}</TableCell>
+                          <TableCell>
+                            <img
+                              src={rent?.bikeId?.images[0]}
+                              className="w-12 h-12 rounded-xl"
+                              alt=""
+                            />
+                          </TableCell>
+                          <TableCell>{rent?.bikeId.name}</TableCell>
                           <TableCell className="">
                             {new Date(rent?.startTime).toLocaleString()}
                           </TableCell>

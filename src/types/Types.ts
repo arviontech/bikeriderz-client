@@ -1,7 +1,7 @@
 export type TBike = {
   _id: string;
   name: string;
-  image: string[];
+  images: string[];
   description: string;
   pricePerHour: number;
   isAvailable: boolean;
@@ -41,6 +41,9 @@ export type Tuser = {
   role: keyof typeof USER_Role;
   phone: string;
   address: string;
+  nidCardNo: string;
+  profileImg: string;
+  isDeleted: boolean;
 };
 
 export type TBooking = {

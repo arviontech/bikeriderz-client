@@ -1,10 +1,10 @@
 export const bikeFields = [
   { name: "name", label: "Bike Name", placeholder: "Bike Name" },
-  {
-    name: "image",
-    label: "Images URL",
-    placeholder: "Images url (comma-separated)",
-  },
+  // {
+  //   name: "image",
+  //   label: "Images URL",
+  //   placeholder: "Images url (comma-separated)",
+  // },
   {
     name: "description",
     label: "Bike Description",

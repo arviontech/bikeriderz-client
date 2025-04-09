@@ -39,12 +39,13 @@ const SingleProduct = () => {
   const navigate = useNavigate();
   const { data, isLoading } = useGetSingleBikesQuery(id);
   const dispatch = useAppDispatch();
+  const [startDateTime, setStartDateTime] = useState(new Date());
 
   const item = data?.data;
   useEffect(() => {
     // Reset the selected image whenever the id changes
-    if (item && item?.image?.length > 0) {
-      setSelectedImage(item.image[0]);
+    if (item && item?.images?.length > 0) {
+      setSelectedImage(item.images[0]);
     }
   }, [id, item]);
 
@@ -58,12 +59,11 @@ const SingleProduct = () => {
 
   const onSubmit: SubmitHandler<bookingInput> = (formData) => {
     // Convert local datetime to ISO 8601 format
-    const startTimeISO = new Date(formData.startTime).toISOString();
-    console.log(startTimeISO);
+    // const startTimeISO = new Date(formData.startTime).toISOString();
 
     const bike = {
       bikeId: id || "",
-      startTime: startTimeISO,
+      startTime: new Date(formData.startTime).toISOString(),
     };
     dispatch(bookingNow(bike));
     navigate("/checkout");
@@ -161,7 +161,7 @@ const SingleProduct = () => {
                 />
               </div>
               <div className="flex items-center justify-center  gap-4">
-                {item?.image?.map((imgSrc: string, index: number) => (
+                {item?.images?.map((imgSrc: string, index: number) => (
                   <div
                     key={index}
                     className={`flex items-center justify-center mb-5 border ${
@@ -272,6 +272,15 @@ const SingleProduct = () => {
                           type="datetime-local"
                           {...register("startTime", { required: true })}
                           className="w-full h-12 px-4 py-2 border border-[#ff950a] cursor-pointer focus:outline-none focus:border-[#ffa633] text-base justify-between"
+                          value={new Date(
+                            startDateTime.getTime() -
+                              startDateTime.getTimezoneOffset() * 60000
+                          )
+                            .toISOString()
+                            .slice(0, 16)}
+                          onChange={(e) => {
+                            setStartDateTime(new Date(e.target.value));
+                          }}
                         />
                       </div>
                     </div>

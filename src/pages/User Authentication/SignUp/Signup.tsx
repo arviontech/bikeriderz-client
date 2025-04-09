@@ -20,8 +20,16 @@ const Signup = () => {
   } = useForm<Tuser>();
 
   const onSubmit: SubmitHandler<Tuser> = async (data) => {
-    const { name, email, password, phone, address } = data;
-    const newUser = { name, email, password, phone, address, role: "user" };
+    const { name, email, password, phone, address, nidCardNo } = data;
+    const newUser = {
+      name,
+      email,
+      password,
+      phone,
+      address,
+      nidCardNo,
+      role: "user",
+    };
     try {
       const result = await signUP(newUser).unwrap();
       console.log(result);
@@ -45,6 +53,7 @@ const Signup = () => {
     { name: "email", placeholder: "Your Email" },
     { name: "phone", placeholder: "Phone Number" },
     { name: "address", placeholder: "Type your full address" },
+    { name: "nidCardNo", placeholder: "NID Card Number" },
   ];
   return (
     <div
