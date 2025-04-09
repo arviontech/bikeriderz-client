@@ -18,7 +18,7 @@ import {
   useGetSingleBikesQuery,
   useUpdateBikeMutation,
 } from "@/redux/api/BikeApi/bikeApi";
-import { FilePenLine, Loader, X } from "lucide-react";
+import { FilePenLine, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const UpdateBike = ({ bike }: { bike: TBike }) => {
@@ -170,14 +170,14 @@ const UpdateBike = ({ bike }: { bike: TBike }) => {
     }
   };
 
-  if (bikeLoading) {
-    return (
-      <div className="flex justify-center items-center h-40">
-        <Loader className="animate-spin mr-2" />
-        <p className="text-lg font-medium">Loading...</p>
-      </div>
-    );
-  }
+  // if (bikeLoading) {
+  //   return (
+  //     <div className="flex justify-center items-center h-40">
+  //       <Loader className="animate-spin mr-2" />
+  //       <p className="text-lg font-medium">Loading...</p>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div>
